@@ -19,12 +19,13 @@ public class Filling : MonoBehaviour
         _audio = GetComponent<AudioSource>();
        // _AmoniaSmoke.Pause();
         _AmoniaSmoke.Stop();
+        _renderValue += 1/2f;
     }
     //Detecting what chemical element hit the Container:
     private void OnParticleCollision(GameObject other)
     {       
         this.gameObject.tag = other.gameObject.tag;
-        _renderValue += 1 / 100f;
+        _renderValue += 1 / 5000f;
         _TestRenderer.material.SetFloat("_FillAmount", _renderValue);                                             
     }
     private void OnTriggerEnter(Collider other)
